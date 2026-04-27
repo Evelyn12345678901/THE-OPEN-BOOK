@@ -6,41 +6,42 @@
     <title>The Open Book - Progetto Murales</title>
     <style>
         :root {
-            --bg-color: #0d1b2a; /* Azzurro scuro profondo */
-            --accent-line: #00e5ff; /* Ciano per linee e dettagli tecnici */
-            --card-bg: #1b263b; /* Blu per i riquadri */
-            --text-main: #e0e1dd;
-            --text-secondary: #778da9;
-            --highlight: #ffffff;
+            /* Colori richiesti */
+            --bg-blue: #1b263b;        /* Azzurro scuro bilanciato */
+            --work-silver: #e0e1dd;    /* Colore argento/acciaio per le linee (rappresenta il lavoro) */
+            --accent-blue: #415a77;    /* Blu tecnico per dettagli */
+            --card-bg: #0d1b2a;        /* Blu notte per i riquadri */
+            --text-main: #f8f9fa;
+            --text-secondary: #bdc3c7;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            background-color: var(--bg-blue);
             color: var(--text-main);
             margin: 0;
             line-height: 1.6;
         }
 
         header {
-            padding: 80px 20px;
             text-align: center;
-            border-bottom: 2px solid var(--accent-line);
-            background: linear-gradient(180deg, #1b263b 0%, #0d1b2a 100%);
+            padding: 60px 20px;
+            border-bottom: 2px solid var(--work-silver);
+            background: linear-gradient(180deg, #0d1b2a 0%, var(--bg-blue) 100%);
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin: 0;
             letter-spacing: 4px;
-            color: var(--highlight);
             text-transform: uppercase;
+            color: var(--work-silver);
         }
 
         .subtitle {
-            color: var(--accent-line);
-            font-weight: bold;
             font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
         }
 
         .container {
@@ -50,43 +51,41 @@
         }
 
         section {
-            margin-bottom: 100px;
+            margin-bottom: 70px;
         }
 
         h2 {
-            font-size: 2rem;
-            border-left: 4px solid var(--accent-line);
-            padding-left: 15px;
-            margin-bottom: 40px;
-            color: var(--accent-line);
+            color: var(--work-silver);
+            border-bottom: 1px solid var(--work-silver);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
         }
 
-        /* Layout Griglia Personaggi */
-        .character-grid {
+        /* Griglia Personaggi */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .character-card {
-            background: var(--card-bg);
-            border-radius: 15px;
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent-blue);
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(0, 229, 255, 0.2);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .character-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-line);
-            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--work-silver);
         }
 
-        .card-image {
+        .card-img {
             width: 100%;
-            height: 250px;
-            background-color: #000;
+            height: 220px;
             object-fit: cover;
+            background-color: #2c3e50;
             display: block;
         }
 
@@ -94,114 +93,106 @@
             padding: 20px;
         }
 
-        .card-content h3 {
-            margin-top: 0;
-            color: var(--accent-line);
+        .card h3 {
+            margin: 0 0 10px 0;
+            color: var(--work-silver);
+            font-size: 1.4rem;
         }
 
-        /* Sezione Concetto */
-        .concept-box {
-            background: rgba(27, 38, 59, 0.5);
+        /* Colori specifici per elementi richiesti */
+        .border-doraemon { border-top: 5px solid #00a1e9; }
+        .border-spiderman { border-top: 5px solid #ed1d24; }
+        .border-gumball { border-top: 5px solid #ffcc00; }
+        .border-banksy { border-top: 5px solid #ffffff; }
+        .border-solidarity { border-top: 5px solid #e74c3c; }
+        .border-pop { border-top: 5px solid #9b59b6; }
+
+        .interview-section {
+            background: rgba(13, 27, 42, 0.6);
             padding: 30px;
-            border: 1px dashed var(--accent-line);
-            border-radius: 10px;
+            border-radius: 15px;
+            border-left: 5px solid var(--work-silver);
         }
 
-        /* Tecniche e Glossario */
-        .tech-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .tech-item {
-            background: transparent;
-            border: 1px solid var(--accent-line);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: var(--accent-line);
-        }
-
-        /* Footer */
         footer {
             text-align: center;
-            padding: 60px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            background-color: #0d1b2a;
+            border-top: 1px solid var(--work-silver);
+            font-size: 0.9rem;
             color: var(--text-secondary);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>The Open Book</h1>
-    <p class="subtitle">Classe 2B | Anno Scolastico 2025/2026</p>
+    <h1>THE OPEN BOOK</h1>
+    <p class="subtitle">Progetto Murales Scolastico | Classe 2B - A.S. 2025/26</p>
 </header>
 
 <div class="container">
 
     <section>
-        <h2>Il Concetto Principale</h2>
-        <div class="concept-box">
-            <p>Il murales ha come concetto principale l'<strong>Open Book</strong>, simbolo di conoscenza e condivisione[cite: 5]. Rappresenta l'importanza di aprire la mente e crescere attraverso la cultura[cite: 6]. Il cuore dell'opera è affiancato da icone che superano i limiti della sola teoria attraverso l'esperienza pratica[cite: 91].</p>
-        </div>
+        <h2>Concetto del Progetto</h2>
+        <p>Il murales ha come concetto principale l'<strong>Open Book</strong>, simbolo di conoscenza e condivisione[cite: 5]. Rappresenta l'importanza di aprire la mente e crescere attraverso la cultura, superando i limiti della sola teoria tramite l'esperienza pratica[cite: 6, 91].</p>
     </section>
 
     <section>
         <h2>Iconografia e Personaggi</h2>
-        <div class="character-grid">
+        <div class="grid">
             
-            <div class="character-card">
-                <img src="https://via.placeholder.com/400x250/0d1b2a/00e5ff?text=Doraemon" alt="Doraemon" class="card-image">
+            <div class="card border-doraemon">
+                <img src="https://via.placeholder.com/400x300/00a1e9/ffffff?text=Doraemon" alt="Doraemon" class="card-img">
                 <div class="card-content">
                     <h3>Doraemon</h3>
-                    <p>Il gatto robot del futuro inviato per aiutare Nobita a crescere e diventare responsabile[cite: 11, 12]. Nel murales rappresenta gioia, amicizia e fantasia.</p>
+                    <p>Il gatto robot del futuro che aiuta a crescere e diventare responsabili[cite: 11, 12]. Nel murales rappresenta gioia, amicizia e fantasia[cite: 14].</p>
                 </div>
             </div>
 
-            <div class="character-card">
-                <img src="https://via.placeholder.com/400x250/0d1b2a/00e5ff?text=Spiderman+Icon" alt="Spiderman" class="card-image">
+            <div class="card border-spiderman">
+                <img src="https://via.placeholder.com/400x300/ed1d24/ffffff?text=Spiderman+Spider" alt="Il Ragno di Spiderman" class="card-img">
                 <div class="card-content">
-                    <h3>Il Ragno di Spiderman</h3>
-                    <p>Un ragno stilizzato su sfondo azzurro e arancione. Le linee nette trasmettono un senso di dinamismo e mistero tipico della street art[cite: 21, 22].</p>
+                    <h3>Ragno di Spiderman</h3>
+                    <p>Un'iconografia stilizzata con linee nette e colori intensi che trasmette mistero e dinamismo, celebrando i valori di coraggio e giustizia[cite: 21, 22, 71].</p>
                 </div>
             </div>
 
-            <div class="character-card">
-                <img src="https://via.placeholder.com/400x250/0d1b2a/00e5ff?text=Gumball+Super+Saiyan" alt="Gumball" class="card-image">
+            <div class="card border-gumball">
+                <img src="https://via.placeholder.com/400x300/ffcc00/000000?text=Gumball+Super+Saiyan" alt="Gumball Super Saiyan" class="card-img">
                 <div class="card-content">
                     <h3>Gumball (Super Saiyan)</h3>
-                    <p>Raffigurato travestito da Goku, questa figura unisce anime e cartoni occidentali in un unico progetto creativo[cite: 24, 25].</p>
+                    <p>Raffigurato in versione Super Saiyan, unisce il mondo degli anime e dei cartoni occidentali in un unico progetto di street art[cite: 24, 25].</p>
                 </div>
             </div>
 
-            <div class="character-card">
-                <img src="https://via.placeholder.com/400x250/0d1b2a/00e5ff?text=Girl+with+Balloon" alt="Girl with Balloon" class="card-image">
+            <div class="card border-banksy">
+                <img src="https://via.placeholder.com/400x300/ffffff/000000?text=Girl+with+Balloon" alt="Bambina con il palloncino" class="card-img">
                 <div class="card-content">
                     <h3>Girl with Balloon</h3>
-                    <p>L'icona di Banksy che simboleggia la speranza e l'innocenza infantile, ritratta nel momento in cui l'amore vola via[cite: 17, 18].</p>
+                    <p>Celebre icona di Banksy che simboleggia speranza, innocenza infantile e amore[cite: 18].</p>
                 </div>
             </div>
 
-            <div class="character-card">
-                <img src="https://via.placeholder.com/400x250/0d1b2a/00e5ff?text=Pop+Culture" alt="Cultura Pop" class="card-image">
-                <div class="card-content">
-                    <h3>Cultura Pop</h3>
-                    <p>Celebrazione dello stile giovanile attraverso personaggi come Deadpool, Fortnite e i Pokémon, promuovendo il valore dell'inclusione[cite: 32, 36, 41].</p>
-                </div>
-            </div>
-
-            <div class="character-card">
-                <img src="https://via.placeholder.com/400x250/0d1b2a/00e5ff?text=Cuore+Solidarietà" alt="Cuore di Solidarietà" class="card-image">
+            <div class="card border-solidarity">
+                <img src="https://via.placeholder.com/400x300/e74c3c/ffffff?text=Cuore+Solidarietà" alt="Cuore di Solidarietà" class="card-img">
                 <div class="card-content">
                     <h3>Cuore di Solidarietà</h3>
-                    <p>Due mani che formano un cuore rosso, simbolo di amicizia, empatia e unione scolastica realizzato tramite stencil[cite: 27, 28].</p>
+                    <p>Due mani che formano un cuore rosso, simbolo di amicizia, empatia e sostegno reciproco all'interno della comunità scolastica[cite: 27, 28].</p>
+                </div>
+            </div>
+
+            <div class="card border-pop">
+                <img src="https://via.placeholder.com/400x300/9b59b6/ffffff?text=Cultura+Pop" alt="Cultura Pop" class="card-img">
+                <div class="card-content">
+                    <h3>Cultura Pop</h3>
+                    <p>Celebrazione della cultura giovanile attraverso personaggi come Deadpool, Fortnite, Kuromi e Gengar, integrati in un vivace collage[cite: 36, 38, 41].</p>
                 </div>
             </div>
 
@@ -209,27 +200,34 @@
     </section>
 
     <section>
-        <h2>Tecniche di Lavoro</h2>
-        <div class="tech-list">
-            <div class="tech-item">Neururalismo (Murales + Tecniche miste) [cite: 46, 48]</div>
-            <div class="tech-item">Stencil Art (Mascherine e spray) [cite: 51, 52]</div>
-            <div class="tech-item">Graffiti-Writing (Lettering e Tag) [cite: 57, 59]</div>
-            <div class="tech-item">Collage Pop [cite: 38, 41]</div>
+        <h2>Le Tecniche del Lavoro</h2>
+        <div class="grid">
+            <div class="card-content" style="background: rgba(255,255,255,0.05); border-radius: 10px;">
+                <h4 style="color: var(--work-silver);">Neururalismo</h4>
+                <p>Unione di murales moderni con tecniche miste (pittura, spray, collage) per trattare temi sociali e natura[cite: 46, 48, 50].</p>
+            </div>
+            <div class="card-content" style="background: rgba(255,255,255,0.05); border-radius: 10px;">
+                <h4 style="color: var(--work-silver);">Stencil Art</h4>
+                <p>Uso di mascherine ritagliate per riprodurre immagini con contorni netti e precisi[cite: 52, 56].</p>
+            </div>
+            <div class="card-content" style="background: rgba(255,255,255,0.05); border-radius: 10px;">
+                <h4 style="color: var(--work-silver);">Graffiti-Writing</h4>
+                <p>Scrittura urbana basata su lettere stilizzate (lettering) e firme personali dette "tag"[cite: 57, 59, 60].</p>
+            </div>
         </div>
     </section>
 
-    <section>
-        <h2>Il Progetto Scolastico</h2>
-        <div class="concept-box">
-            <p>Il progetto è nato nel 2023-2024 per coinvolgere gli studenti nell'abbellire la scuola, rendendola un luogo "bello e degno di rispetto"[cite: 87]. Hanno partecipato 25 studenti per 5-6 settimane di lavoro pratico[cite: 88]. Secondo il Professor Miglionico, l'esperienza concreta è fondamentale per un apprendimento efficace[cite: 90].</p>
-        </div>
+    <section class="interview-section">
+        <h2>Intervista al Prof. Miglionico</h2>
+        <p>Il progetto è nato nel 2023-2024 per rendere la scuola un luogo "bello e degno di rispetto"[cite: 87]. Ha coinvolto 25 studenti per 5-6 settimane, integrando lezioni teoriche e lavoro concreto sul campo[cite: 88, 90].</p>
+        <p>L'obiettivo principale era dimostrare come l'esperienza pratica sia fondamentale per un apprendimento efficace e per superare i limiti della sola teoria[cite: 90, 91].</p>
     </section>
 
 </div>
 
 <footer>
-    <p>Progetto "The Open Book" &copy; 2025/2026 - Realizzato dagli studenti della 2B [cite: 3]</p>
-    <p>Direzione artistica: Prof. Miglionico e Prof.ssa Castelli [cite: 87]</p>
+    <p>Progetto "The Open Book" &copy; 2025/26 - Realizzato dagli studenti della Classe 2B</p>
+    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Riferimenti: Banksy (Pest Control Office), Marvel, Sanrio, Pokémon.</p>
 </footer>
 
 </body>
